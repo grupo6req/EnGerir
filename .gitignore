@@ -18,4 +18,5 @@
 
 # Or ignored
 db/schema.rb
+coverage
 
