@@ -6,6 +6,10 @@ class AreasController < ApplicationController
       @area = Area.new
     end
 
+    def index
+      @areas = Area.all
+    end
+
     def edit
       @area = Area.find(params[:id])
     end
