@@ -17,3 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+body {
+  background-color: #ECECEC;
+}
+
+.boxed-div {
+  padding: 15px;
+  box-shadow: 1px 1px 3px #000;
+  border-radius: 3px;
+  background-color: #fff;
+}
