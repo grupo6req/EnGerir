@@ -8,7 +8,15 @@
 </head>
 <body>
 
-<%= yield %>
+  <% if logged_in? %>
+  <div id='top-bar'>
+    <%= render :partial => "shared/top_bar" %>
+  </div>
+  <% end %>
+
+  <div id='main-content'>
+  <%= yield %>
+  <div>
 
 </body>
 </html>
