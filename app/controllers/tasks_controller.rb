@@ -44,9 +44,21 @@ class TasksController < ApplicationController
       end
     end
 
+    def assign_task
+      @task = Task.find(params[:id])
+    end
+
+    def assign_task_to_someone
+      @user = User.find_by(name: params[:name])
+      @task = Task.find(params[:id])
+      @task.user_id = @user.id
+      @task.save
+      redirect_to root_path
+    end
+
     private
 
     def task_params
-      params.require(:task).permit(:name, :description)
+      params.require(:task).permit(:name, :description, :user_id)
     end
 end

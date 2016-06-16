@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
     BCrypt::Password.create(string, cost: cost)
   end
+
+	def performance
+		performance = self.tasks_done/self.tasks.count
+	end
 end

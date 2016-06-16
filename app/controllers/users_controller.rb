@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     end
 
     def show
+      @tasks = User.find(params[:id]).tasks
       @user = User.find(params[:id])
     end
 
