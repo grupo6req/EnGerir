@@ -1,9 +1,19 @@
+<% if current_user.is_admin? %>
+<div class='col-md-12'>
+  <%= link_to "Criar nova tarefa", new_task_url, :class=>"btn btn-primary" %>
+</div>
+<% end %>
+
+<div class='col-md-12'>
 <table class='table table-striped'>
   <h2> Minhas Tarefas </h2>
   <thead>
     <tr>
       <th>Nome</th>
       <th>Status</th>
+      <% if current_user.is_admin? %>
+        <th>Assinalada ?</th>
+      <% end %>
     </tr>
   </thead>
 
@@ -34,7 +44,18 @@
           </ul>
         </div>
       </td>
+
+      <% if current_user.is_admin? %>
+        <td>
+          <% if task.user.nil? %>
+            SEM USUÁRIO
+          <% else %>
+            <%= link_to task.user.name, task.user %>
+          <% end %>
+        </td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
+</div>
