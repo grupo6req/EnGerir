@@ -40,8 +40,13 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find(params[:id])
+      @area = Area.find(params[:user][:area])
+
       if @user.update_attributes(user_params)
+        @user.area = @area
+        @user.save
         flash[:success] = "Usuário editado com sucesso"
+        redirect_to @user
       else
         render 'edit'
       end
