@@ -18,6 +18,7 @@ class AreasController < ApplicationController
       @area = Area.find(params[:id])
       @area.destroy
       flash[:success] = "A área foi criada com sucesso"
+      redirect_to areas_path
     end
 
     def show
@@ -29,7 +30,7 @@ class AreasController < ApplicationController
 
       if @area.save
         flash[:success] = "Área criada com sucesso"
-        redirect_to root_path
+        redirect_to areas_path
       else
         render 'new'
       end
