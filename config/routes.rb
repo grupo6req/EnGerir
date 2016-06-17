@@ -64,6 +64,8 @@ Rails.application.routes.draw do
     get 'tasks/:id/assign' => 'tasks#assign_task'
     post 'tasks/assign_task_to_someone' => 'tasks#assign_task_to_someone'
 
+    put 'tasks/set-task-status' => "tasks#set_task_status" 
+
     resources :users
     resources :areas
     resources :tasks

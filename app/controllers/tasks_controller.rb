@@ -56,6 +56,20 @@ class TasksController < ApplicationController
       redirect_to root_path
     end
 
+    def set_task_status
+      redirect_to root_path unless request.xhr?
+      updated = false
+      @task = Task.find_by_id params[:id]
+
+      if @task
+        @task.status = params[:status] unless params[:status].nil?
+        @task.save
+        updated = true
+      end
+
+      render json: updated
+    end
+
     private
 
     def task_params
