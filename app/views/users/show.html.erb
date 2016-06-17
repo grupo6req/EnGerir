@@ -1,5 +1,32 @@
-<%= @user.name %>
-<%= @user.email %>
+<div class="col-md-6 col-md-offset-3">
+
+<%= link_to "Editar dados pessoais", edit_user_url(@user.id)  %>
+
+<table class='table table-bordered'>
+  <tr>
+    <td><strong>Nome:</strong></td>
+    <td><%= @user.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>E-mail:</strong></td>
+    <td><%= @user.email %></td>
+  </tr>
+  
+  <tr>
+    <td><strong>Area:</strong></td>
+    <td>
+      <% if @user.area  %>
+        <%= @user.area.name  %>
+      <% else %>
+        USUÁRIO NÃO PERTENCE UMA ÁREA
+      <% end %>
+    </td>
+  </tr>
+</table>
+</div>
+
+<div class='col-md-12'>
 
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 <%= bar_chart current_user.performance, colors: ["#009900", "#BBBB00"],
@@ -7,3 +34,4 @@
             title: 'Desempenho do usuário',
  }
  %>
+</div>
