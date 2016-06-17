@@ -12,11 +12,16 @@
   <div id='top-bar'>
     <%= render :partial => "shared/top_bar" %>
   </div>
+
   <% end %>
 
   <div id='main-content'>
-  <%= yield %>
+    <%= yield %>
   <div>
+
+  <div id='footer'>
+    <%= render :partial => 'layouts/footer' %>
+  </div>
 
 </body>
 </html>

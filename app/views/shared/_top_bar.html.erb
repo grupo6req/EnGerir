@@ -13,21 +13,26 @@
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="<%= activemenu('areas') %>">
-          <a href="/areas">Areas</a>
-        </li>
+          <% if current_user.is_admin? %> 
+      
+			 			 <li class="<%= activemenu('areas') %>">
+         			 <a href="/areas">Áreas</a>
+       			 </li>
 
-        <li class="<%= activemenu('tasks') %>">
-          <a href="/tasks">Tarefas</a>
-        </li>
+        		<li class="<%= activemenu('users') %>">
+          		<a href="/users">Usuários</a>
+						</li>
 
-        <li class="<%= activemenu('users') %>">
-          <a href="/users">Usuários</a>
-        </li>
-      </ul>
+						<% end %>
+
+        		<li class="<%= activemenu('tasks') %>">
+         			 <a href="/tasks">Tarefas</a>
+        		</li>
+
+			</ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/profile"><%= @current_user.name %></a></li>
+        <li><%= link_to("#{current_user.name}", "/users/#{current_user.id}") %></li>
         <li>
           <%= link_to 'Logout', logout_path %>
         </li>

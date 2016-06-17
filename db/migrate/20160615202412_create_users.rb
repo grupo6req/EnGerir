@@ -6,8 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.text :description
       t.text :areas_worked
       t.string :password_digest
-      t.boolean :is_admin
-      t.integer :tasks_done
+      t.boolean :is_admin, default: false
+      t.integer :tasks_done, default: 0
 
       t.timestamps null: false
     end

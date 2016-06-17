@@ -7,7 +7,11 @@ class TasksController < ApplicationController
     end
 
     def index
-      @tasks = Task.all
+      if current_user.is_admin?
+        @tasks = Task.all
+      else
+        @tasks = Task.all.where(user_id: current_user.id)
+      end
     end
 
     def edit
@@ -63,6 +67,12 @@ class TasksController < ApplicationController
 
       if @task
         @task.status = params[:status] unless params[:status].nil?
+        if params[:status] == "100"
+          @task.closed = true
+          @user = @task.user
+          @user.tasks_done += 1
+          @user.save
+        end
         @task.save
         updated = true
       end

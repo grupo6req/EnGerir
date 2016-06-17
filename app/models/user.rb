@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   end
 
 	def performance
-		performance = self.tasks_done/self.tasks.count
+		[
+			{"name" => "Tarefas Feitas","data" => {"Feitas" => self.tasks_done}},
+			{"name" => "Tarefas Designadas","data" => {"Todas" => self.tasks.count}}
+		]
 	end
 end
