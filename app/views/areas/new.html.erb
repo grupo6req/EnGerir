@@ -2,14 +2,20 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-  	<%= form_for @area do |f| %>
-  	  <%= f.label :name, "Nome da área" %>
-  	  <%= f.text_field :name %>
+    <%= form_for @area do |f| %>
+      <div class='form-group'>
+        <%= f.label :name, "Nome da área" %>
+        <%= f.text_field :name, :class=>"form-control" %>
+      </div>
 
-  	  <%= f.label :description, "Descrição da área" %>
-  	  <%= f.text_field :description %>
-
-  	  <%= f.submit 'Criar área', class: "btn btn-primary" %>
-  	<% end %>
+      <div class='form-group'>
+        <%= f.label :description, "Descrição da área" %>
+        <%= f.text_area :description, :class=>"form-control" %>
+      </div>
+ 
+      <div class='from-group'>
+        <%= f.submit 'Criar área', class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 </div>
