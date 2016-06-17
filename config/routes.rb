@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   #   end
 
 
-    root 'static_pages#home'
+    root 'tasks#index'
     get 'about' => 'static_pages#about'
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'

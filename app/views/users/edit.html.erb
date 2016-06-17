@@ -20,7 +20,7 @@
       <%= f.text_area :areas_worked, :class=>"form-control" %>
     </div>
 
-    <% if @user.is_admin? %>
+    <% if current_user.is_admin? %>
       <div class='form-group'>
         <%= f.label :area, "Área atual" %>
         <%= f.select :area, area_as_options(@user.area), {:prompt=> "Selecione"}, {:class=>"form-control"} %>
