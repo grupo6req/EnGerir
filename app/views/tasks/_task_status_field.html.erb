@@ -1,0 +1,22 @@
+<div class="dropdown">
+<button class="btn btn-default dropdown-toggle"
+        type="button"
+        id="dropdownMenu1"
+        data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="true">
+    <span class='current-task-status'><%= task.status %>%</span>
+  <span class="caret"></span>
+</button>
+
+<ul class="dropdown-menu add-new-task-status"
+    aria-labelledby="dropdownMenu1"
+    data-id='<%= task.id %>'
+    data-send-ajax='<%= send_ajax %>'>
+
+  <li><a href="javascript: void(0)">0%</a></li>
+  <li><a href="javascript: void(0)">25%</a></li>
+  <li><a href="javascript: void(0)">50%</a></li>
+  <li><a href="javascript: void(0)">75%</a></li>
+  <li><a href="javascript: void(0)">100%</a></li>
+</ul>
+</div>

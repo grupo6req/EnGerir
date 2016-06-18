@@ -22,6 +22,7 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
       @task.destroy
       flash[:success] = "Tarefa foi deletada com sucesso"
+      redirect_to root_path
     end
 
     def show
@@ -43,6 +44,7 @@ class TasksController < ApplicationController
       @task = Task.find(params[:id])
       if @task.update_attributes(task_params)
         flash[:success] = "Tarefa editada com sucesso"
+        redirect_to tasks_path
       else
         render 'edit'
       end
@@ -83,6 +85,6 @@ class TasksController < ApplicationController
     private
 
     def task_params
-      params.require(:task).permit(:name, :description, :user_id)
+      params.require(:task).permit(:name, :description, :user_id, :status)
     end
 end
