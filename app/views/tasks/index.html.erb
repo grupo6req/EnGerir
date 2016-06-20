@@ -6,16 +6,16 @@
 
 <div class='col-md-12'>
 <table class='table table-striped'>
-  <h2> Minhas Tarefas </h2>
+  <h2> Tarefas </h2>
   <thead>
     <tr>
       <th>Nome</th>
       <th>Status</th>
       <% if current_user.is_admin? %>
-        <th>Assinalada ?</th>
+        <th>Responsável</th>
       <% end %>
-      <th>Editar</th>
-      <th>Excluir</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -33,7 +33,7 @@
       <% if current_user.is_admin? %>
         <td>
           <% if task.user.nil? %>
-            SEM USUÁRIO
+            Não alocada ainda
           <% else %>
             <%= link_to task.user.name, task.user %>
           <% end %>
@@ -41,11 +41,11 @@
       <% end %>
 
       <td>
-        <%= link_to "Editar", edit_task_url(task.id) %>
+        <%= link_to "Editar", edit_task_url(task.id), class: 'btn btn-primary' %>
       </td>
 
       <td>
-        <%= link_to "Excluir", task,  method: :delete, data: { confirm: 'Tem certeza ?' }  %>
+        <%= link_to "Excluir", task,  method: :delete, data: { confirm: 'Tem certeza ?' }, class: 'btn btn-danger'  %>
       </td>
     </tr>
   <% end %>

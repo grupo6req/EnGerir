@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   #   end
 
 
-    root 'tasks#index'
+    root 'static_pages#home'
     get 'about' => 'static_pages#about'
     get 'login' => 'sessions#new'
     post 'login' => 'sessions#create'
@@ -64,7 +64,7 @@ Rails.application.routes.draw do
     get 'tasks/:id/assign' => 'tasks#assign_task'
     post 'tasks/assign_task_to_someone' => 'tasks#assign_task_to_someone'
 
-    put 'tasks/set-task-status' => "tasks#set_task_status" 
+    put 'tasks/set-task-status' => "tasks#set_task_status"
 
     resources :users
     resources :areas

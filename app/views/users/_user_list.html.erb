@@ -3,8 +3,8 @@
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Editar</th>
-        <th>Excluir</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
 
@@ -16,11 +16,11 @@
         </td>
 
         <td>
-          <%= link_to "Editar", edit_user_url(user.id) %>
+          <%= link_to "Editar", edit_user_url(user.id), class: 'btn btn-primary'%>
         </td>
 
         <td>
-          <%= link_to "Excluir", user,  method: :delete, data: { confirm: 'Tem certeza ?' }  %>
+          <%= link_to "Excluir", user,  method: :delete, data: { confirm: 'Tem certeza ?' }, class: 'btn btn-danger'  %>
         </td>
       </tr>
     <% end %>

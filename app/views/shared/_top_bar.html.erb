@@ -8,13 +8,13 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand" href="/">EnGerir</a>
+      <span class="navbar-brand"><%= link_to('EnGerir', root_path)%></span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-          <% if current_user.is_admin? %> 
-      
+          <% if current_user.is_admin? %>
+
 			 			 <li class="<%= activemenu('areas') %>">
          			 <a href="/areas">Áreas</a>
        			 </li>
