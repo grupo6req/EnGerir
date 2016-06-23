@@ -36,7 +36,7 @@
 <div class='col-md-12'>
 
 <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-<%= bar_chart current_user.performance, colors: ["#009900", "#BBBB00"],
+<%= bar_chart @user.performance, colors: ["#009900", "#BBBB00"],
   library: {isStacked: true,
             title: 'Desempenho do usuário',
  }
