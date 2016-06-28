@@ -1,0 +1,25 @@
+<div class="col-md-6 col-md-offset-3">
+
+<%= link_to "Editar dados", edit_area_url(@area.id)  %>
+
+<table class='table table-bordered'>
+  <tr>
+    <td><strong>Nome:</strong></td>
+    <td><%= @area.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Descrição</strong></td>
+    <td>
+      <%= @area.description %>
+    </td>
+  </tr>
+  
+</table>
+</div>
+
+<div class='col-md-12'>
+  <h2>Usuários desta área</h2>
+</div>
+
+<%= render :partial => "users/user_list", locals: {users: @area.users} %>

@@ -1,0 +1,44 @@
+<div class="col-md-6 col-md-offset-3">
+
+
+<table class='table table-bordered'>
+  <tr>
+    <td><strong>Nome</strong></td>
+    <td><%= @user.name %></td>
+  </tr>
+
+  <tr>
+    <td><strong>Área</strong></td>
+    <td>
+      <% if @user.area  %>
+      <%= @user.area.name  %>
+      <% else %>
+      Não alocado ainda
+      <% end %>
+    </td>
+  </tr>
+
+  <tr>
+    <td><strong>Descrição</strong></td>
+    <td><%= @user.description %>
+  </tr>
+
+  <tr>
+    <td><strong>E-mail</strong></td>
+    <td><%= @user.email %></td>
+  </tr>
+
+</table>
+</div>
+
+<center><%= link_to "Editar dados pessoais", edit_user_url(@user.id), class: 'btn btn-primary'  %></center>
+
+<div class='col-md-12'>
+
+<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+<%= bar_chart @user.performance, colors: ["#009900", "#BBBB00"],
+  library: {isStacked: true,
+            title: 'Desempenho do usuário',
+ }
+ %>
+</div>

@@ -17,3 +17,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+#down-bar {
+  background-color: #25C539;
+}
+
+body {
+  background-color: #FFFFFF;
+}
+
+.boxed-div {
+  padding: 15px;
+  box-shadow: 1px 1px 3px #000;
+  border-radius: 3px;
+  background-color: #blue;
+}
+
+#main-content {
+  margin-top: 70px;
+}

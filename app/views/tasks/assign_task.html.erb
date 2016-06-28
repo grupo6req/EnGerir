@@ -1,0 +1,7 @@
+<h1>Responsabilize alguém por esta tarefa</h1>
+
+<%= form_tag "/tasks/assign_task_to_someone", method: :post do %>
+	<%= text_field_tag :name %>
+	<%= hidden_field_tag :id, params[:id] %>
+	<%= submit_tag("Assinalar alguém à tarefa") %>
+<% end %>

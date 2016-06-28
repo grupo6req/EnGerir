@@ -1,0 +1,33 @@
+<% provide(:title, "Entrar") %>
+
+
+<div id='login-page' class="row">
+
+  <div class="col-md-6">
+    <%= image_tag("logo-engrena.png", :alt => "Logo Engrena") %>
+  </div>
+
+  <div class="col-md-6">
+    <div class='col-md-8 col-md-offset-1 boxed-div'>
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class='form-group'>
+          <%= f.label :email %>
+          <%= f.email_field :email, class: 'form-control', :placeholder=>"seu@email.com" %>
+        </div>
+
+        <div class='form-group'>
+          <%= f.label :password %>
+          <%= f.password_field :password, class: 'form-control', :placeholder=>"**********" %>
+        </div>
+
+        <div>
+          <%= f.submit "Log in", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+      
+      <div>
+        <p>Novo usuário? <%= link_to "Cadastre-se!", new_user_path %></p>
+      </div>
+    </div>
+  </div>
+</div>

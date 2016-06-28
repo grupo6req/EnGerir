@@ -1,0 +1,35 @@
+<div class='row'>
+  <div class='col-md-12'>
+    <%= link_to "Criar nova Área", new_area_url, :class=>"btn btn-primary" %>
+  </div>
+
+  <div class='col-md-12'>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @areas.each do |area| %>
+        <tr>
+          <td>
+            <%= link_to area.name, area %>
+          </td>
+
+          <td>
+            <%= link_to "Editar", edit_area_url(area.id) %>
+          </td>
+
+          <td>
+            <%= link_to "Excluir", area,  method: :delete, data: { confirm: 'Tem certeza ?' }  %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
