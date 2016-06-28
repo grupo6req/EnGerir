@@ -40,7 +40,11 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find(params[:id])
-      @area = Area.find(params[:user][:area])
+      @area = if (not params[:user][:area].nil?) and (not params[:user][:area].empty?)
+                Area.find(params[:user][:area])
+              else
+                nil
+              end
 
       if @user.update_attributes(user_params)
         @user.area = @area
